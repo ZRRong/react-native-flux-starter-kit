@@ -1,0 +1,43 @@
+{
+  "name": "App",
+  "version": "0.0.1",
+  "author": "Mingdong Luo <http://github.com/mdluo>",
+  "description": "React Native Flux Starter Kit",
+  "scripts": {
+    "start": "rnws start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdluo/react-native-flux-starter-kit"
+  },
+  "dependencies": {
+    "events": "^1.1.0",
+    "flux": "^2.1.1",
+    "history": "^1.13.1",
+    "humps": "1.0.0",
+    "immutable": "^3.7.5",
+    "invariant": "^2.2.0",
+    "jquery": "^2.1.4",
+    "keymirror": "^0.1.1",
+    "normalizr": "^1.4.0",
+    "object-assign": "^4.0.1",
+    "react-native": "^0.15.0",
+    "react-router": "^1.0.0",
+    "underscore": "^1.8.3",
+    "whatwg-fetch": "^0.10.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "babel-core": "5.8.33",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-react-transform": "^1.1.1",
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.1.1",
+    "eslint-plugin-react": "^3.11.2",
+    "react-native-webpack-server": "^0.8.2",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "license": "MIT"
+}
