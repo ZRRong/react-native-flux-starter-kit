@@ -5,12 +5,25 @@
 
 import React, { Component, PropTypes } from 'react-native';
 
+import * as UserActionCreators from '../actions/Github/UserActionCreators';
+import UserStore from '../stores/Github/UserStore';
+import connectToStores from '../decorators/connectToStores';
+
 let {
   Platform,
   StyleSheet,
   Text,
   View,
 } = React;
+
+function requestData(props) {
+  UserActionCreators.requestUser('mdluo');
+}
+
+function getState(props) {
+  const user = UserStore.getUser();
+  return { platform: Platform.OS, user };
+}
 
 class App extends Component {
 
@@ -25,20 +38,31 @@ class App extends Component {
 
   constructor(props, context) {
     super(props, context);
+    this.handleStoresChanged = this.handleStoresChanged.bind(this);
+    this.state = getState(props);
+  }
 
-    this.state = {
-      platform: Platform.OS,
-    };
+  componentWillMount() {
+    UserStore.addChangeListener(this.handleStoresChanged);
+    requestData();
+  }
+
+  componentWillUnmount() {
+    UserStore.removeChangeListener(this.handleStoresChanged);
+  }
+
+  handleStoresChanged() {
+    this.setState(getState(this.props));
   }
 
   render() {
     const { instructions } = this.props;
-    let { platform } = this.state;
+    let { platform, user } = this.state;
 
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native! {user.login}
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.{platform}.js

@@ -5,7 +5,7 @@
   "description": "React Native Flux Starter Kit",
   "private": true,
   "scripts": {
-    "start": "react-native start"
+    "start": "./node_modules/react-native/packager/packager.sh --root=./"
   },
   "dependencies": {
     "events": "^1.1.0",
@@ -21,8 +21,7 @@
     "react-native": "^0.15.0",
     "react-pure-render": "^1.0.2",
     "react-router": "^1.0.0",
-    "underscore": "^1.8.3",
-    "whatwg-fetch": "^0.10.1"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "request": "^2.67.0"

@@ -16,7 +16,7 @@ const UserStore = createStore({
   }
 });
 
-DoctorStore.dispatchToken = register(action => {
+UserStore.dispatchToken = register(action => {
   switch(action.type) {
     case 'REQUEST_GITHUB_USER_SUCCESS':
       if (action.response) {
