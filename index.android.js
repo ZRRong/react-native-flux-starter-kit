@@ -4,7 +4,7 @@
  */
 
 import { AppRegistry } from 'react-native';
-import App from './components/App';
+import App from './src/components/App';
 
 class Root extends App {
   static defaultProps = {
