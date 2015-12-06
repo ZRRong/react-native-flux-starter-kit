@@ -7,7 +7,6 @@ import React, { Component, PropTypes } from 'react-native';
 
 import * as UserActionCreators from '../actions/Github/UserActionCreators';
 import UserStore from '../stores/Github/UserStore';
-import connectToStores from '../decorators/connectToStores';
 
 let {
   Platform,
