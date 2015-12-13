@@ -1,8 +1,3 @@
-/**
- * React Native Flux Starter Kit
- * (C) 2015 Mingdong Luo (https://github.com/mdluo) | MIT License
- */
-
 import React, { Component, PropTypes } from 'react-native';
 
 import * as UserActionCreators from '../actions/Github/UserActionCreators';
@@ -43,7 +38,7 @@ class App extends Component {
 
   componentWillMount() {
     UserStore.addChangeListener(this.handleStoresChanged);
-    requestData();
+  //  requestData();
   }
 
   componentWillUnmount() {

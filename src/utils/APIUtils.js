@@ -1,11 +1,11 @@
 /**
- * React Native Flux Starter Kit
+ * Follow-up System Web Frontend (https://github.com/mdluo/follow-up-flux)
  * (C) 2015 Mingdong Luo (https://github.com/mdluo) | MIT License
  */
 
-//import 'whatwg-fetch';
+import 'whatwg-fetch';
 
-const API_ROOT = 'https://api.github.com/';
+const API_ROOT = 'http://192.168.1.119:3000';
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'
@@ -16,8 +16,8 @@ export function fetchJSON(url, method='GET', data) {
     url = API_ROOT + url;
   }
   return fetch(url, {
-      method,
-      headers,
+      method: method,
+      headers: headers,
       body: JSON.stringify(data)
     }).then(response =>
       response.json().then(json => {
