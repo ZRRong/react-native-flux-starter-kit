@@ -14,7 +14,12 @@ var {
   Platform,
   WebView,
 } = React;
-
+import {
+    Button,
+    TYPO,
+    COLOR,
+    Subheader
+} from 'mrn';
 var DetailToolbar = require('./DetailToolbar');
 
 var Department = React.createClass({
@@ -30,11 +35,17 @@ var Department = React.createClass({
   },
 
   render: function() {
+      var { primary } =  this.props;
     var toolbar = <DetailToolbar navigator={this.props.navigator} style={styles.toolbar}/>;
     return (
   <View style={styles.container}>
       {toolbar}
-
+      <View style={styles.content}>
+          <Button value="NORMAL FLAT" primary={primary} onPress={()=> console.log(this.refs)}/>
+          <Button value="DISABLED FLAT" disabled={true} primary={primary}/>
+          <Button value="NORMAL RAISED" raised={true} primary={primary}/>
+          <Button value="DISABLED RAISED" disabled={true} raised={true} primary={primary}/>
+      </View>
        </View>
 
        );
@@ -45,6 +56,9 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
+  },
+  content: {
+      padding: 16,
   },
   toolbar: {
     backgroundColor: '#00a2ed',

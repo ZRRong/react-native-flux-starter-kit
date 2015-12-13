@@ -12,6 +12,12 @@ let {
   ScrollView,
   TouchableHighlight,
 } = React;
+import {
+    Button,
+    TYPO,
+    COLOR,
+    Subheader
+} from 'mrn';
 
 let tel={
   username:"",
@@ -60,6 +66,7 @@ class Login extends Component{
   }
 
   render() {
+    let { primary } =  this.props;
     const { instructions } = this.props;
     let { user } = this.state;
     console.log('render:',user);
@@ -67,14 +74,7 @@ class Login extends Component{
 
   <View style={styles.container}>
     <View style={styles.flowRight}>
-      <TouchableHighlight style={styles.button1}
-          underlayColor='#99d9f4'>
-        <Text style={styles.buttonText1}>注册</Text>
-      </TouchableHighlight>
-      <TouchableHighlight style={styles.button1}
-          underlayColor='#99d9f4'>
-        <Text style={styles.buttonText1}>登录</Text>
-      </TouchableHighlight>
+      <Button value="注册" primary={primary} onPress={()=> console.log('Login')}/>
     </View>
       <TextInput
           placeholder="Username"
@@ -89,12 +89,9 @@ class Login extends Component{
                       style={styles.formInput}
                       value={this.state.password}
                     />
-                    <TouchableHighlight
-                      onPress={(this.requestData.bind(this))}
-                       style={styles.button}
-                        underlayColor='#99d9f4'>
-                      <Text style={styles.buttonText}>验证码</Text>
-                    </TouchableHighlight>
+                    <Button value="验证码" raised={true} primary={primary}
+                        onPress={(this.requestData.bind(this))}/>
+
           </View>
             <TouchableHighlight onPress={(this.onSubmitPressed.bind(this))} style={styles.button}
                       underlayColor='#99d9f4'>
@@ -114,7 +111,7 @@ class Login extends Component{
     });
   }
   requestData(props) {
-    SmsActionCreators.postMobile(this.state.username);
+    SmsActionCreators.postMobile('17892372646');
   }
   }
 

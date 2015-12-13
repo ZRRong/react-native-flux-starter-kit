@@ -7,6 +7,7 @@ import React,{ AppRegistry } from 'react-native';
 import App from './src/components/App';
 import Login from './src/components/Login';
 import MainPage from './src/components/MainPage';
+import ButtonExample from './src/components/ButtonExample';
 import Department from './src/components/Department';
 
 let {
@@ -61,6 +62,12 @@ class Root extends App {
         return (
           <DepartmentList
             navigator={navigator} />
+        );
+      }
+      if (routeId === 'ButtonExample') {
+        return (
+          <ButtonExample
+              navigator={navigator} />
         );
       }
       if (routeId === 'MainPage') {

@@ -6,12 +6,15 @@ var {
     Component,
     StyleSheet,
     Text,
+    Image,
     TouchableHighlight,
     ToastAndroid,
     View,
 } = React;
 
+
 var DepartmentList = React.createClass({
+
   _onPressBackButton: function() {
     if (this.props.navigator) {
       this.props.navigator.push({
@@ -25,11 +28,11 @@ var DepartmentList = React.createClass({
     return (
       <View style={styles.container}>
         <TouchableHighlight onPress={this._onPressBackButton}>
-          <Text style={styles.title}>
+          <Text style={styles.title} >
               HAHA
           </Text>
           </TouchableHighlight>
-          <Text style={styles.title}>
+          <Text style={styles.title}  >
             泌尿科
           </Text>
 
@@ -44,13 +47,22 @@ var styles = StyleSheet.create({
         padding: 30,
         marginTop: 65,
         alignItems: "stretch",
-        color:"#FFFFFF"
+        color:"white"
+    },
+
+    actionItem: {
+      height: 56,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingLeft: 8,
+      paddingRight: 8,
     },
     title: {
         fontSize: 18,
         marginBottom: 10,
-        color:"#555555"
-    },
+
+    }
 
 });
 module.exports = DepartmentList;

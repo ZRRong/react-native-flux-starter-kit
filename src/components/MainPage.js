@@ -15,20 +15,24 @@ let {
   TouchableHighlight,
   Dimensions,
   Platform,
+  ListView,
   TouchableNativeFeedback,
 } = React;
+
 import DepartmentList from './DepartmentList';
+
 var Drawer = require('react-native-drawer');
 let deviceWidth = Dimensions.get('window').width;
 let statusBarSize = Platform.OS == 'ios' ? 10 : 0;
 let DRAWER_REF = 'drawer';
 let DRAWER_WIDTH_LEFT = 56;
-
 class  MainPage extends Component{
   constructor(props) {
           super(props);
           this.openDrawer = this.openDrawer.bind(this)
+
       }
+
     openDrawer() {
       this.refs['DRAWER'].openDrawer()
     }
@@ -47,12 +51,12 @@ class  MainPage extends Component{
       if (Platform.OS === 'android') {
         TouchableElement = TouchableNativeFeedback;
       }
-      let navigationView = (
-        <View style={{flex: 1, backgroundColor: '#fff'}}>
+      let navigationView =(
+        <View style={{flex: 1, backgroundColor: 'white'}}>
        <DepartmentList
          navigator={this.props.navigator}
          />
-        </View>
+      </View>
 
      );
       return (
@@ -81,7 +85,6 @@ class  MainPage extends Component{
                     style={styles.actionIcon}
                     source={require('image!ic_more_white')}
                     resizeMode='contain' />
-
                 </View>
               </TouchableElement>
 
@@ -91,7 +94,8 @@ class  MainPage extends Component{
       );
 
     }
-  }
+
+}
 
 let styles = StyleSheet.create({
 
@@ -124,26 +128,10 @@ let styles = StyleSheet.create({
   actionIcon: {
     width: 32,
     height: 32,
-  },
+  }
 
-  button: {
-    height: 36,
-    flex: 2,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
 
-  },
-  buttonText: {
-      fontSize: 18,
-      color: "#ffffff",
-      alignSelf: "center"
-  },
+
 
 });
 module.exports = MainPage;
