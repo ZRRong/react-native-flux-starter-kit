@@ -98,7 +98,6 @@ class  MainPage extends Component{
 }
 
 let styles = StyleSheet.create({
-
   actionsContainer: {
     height: 56,
     paddingTop: statusBarSize,
@@ -129,9 +128,5 @@ let styles = StyleSheet.create({
     width: 32,
     height: 32,
   }
-
-
-
-
 });
 module.exports = MainPage;

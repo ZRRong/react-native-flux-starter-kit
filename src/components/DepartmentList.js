@@ -11,7 +11,11 @@ var {
     ToastAndroid,
     View,
 } = React;
-
+import {
+    Subheader,
+    Avatar,
+    COLOR
+} from 'mrn';
 
 var DepartmentList = React.createClass({
 
@@ -27,16 +31,38 @@ var DepartmentList = React.createClass({
     console.log('Right.render');
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this._onPressBackButton}>
+    <TouchableHighlight onPress={this._onPressBackButton}
+      underlayColor='#D3D3D3'>
+      <View style={styles.titleIcon}>
+        <View style={styles.con}>
+  <Avatar src="https://s3.amazonaws.com/uifaces/faces/twitter/ok/128.jpg"/>
           <Text style={styles.title} >
               HAHA
           </Text>
-          </TouchableHighlight>
-          <Text style={styles.title}  >
-            泌尿科
-          </Text>
-
+        </View>
       </View>
+          </TouchableHighlight>
+    <View style={styles.rowSplitLine}>
+    </View>
+          <View style={styles.Icon}>
+            <View style={styles.con}>
+            <Avatar src="http://mrn.js.org/user/image/favicon.png"/>
+             <Text style={styles.title}  >
+            设置
+           </Text>
+           </View>
+           </View>
+      <View style={styles.rowSplitLine}>
+           </View>
+           <View style={styles.Icon}>
+             <View style={styles.con}>
+             <Avatar src="http://mrn.js.org/user/image/favicon.png"/>
+              <Text style={styles.title}  >
+             工作汇总
+            </Text>
+            </View>
+            </View>
+    </View>
 
     );
   }
@@ -58,9 +84,30 @@ var styles = StyleSheet.create({
       paddingLeft: 8,
       paddingRight: 8,
     },
+    titleIcon:{
+      height: 80,
+      justifyContent: 'center'
+    },
+    Icon:{
+      height: 50,
+      justifyContent: 'center',
+      marginTop: 20
+    },
+    con:{
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    rowSplitLine: {
+      height: 1,
+      backgroundColor: '#e5e5e5',
+      marginLeft: 20,
+      marginRight: 20,
+    },
     title: {
-        fontSize: 18,
-        marginBottom: 10,
+      fontSize: 12,
+      color: 'black',
+      marginLeft: 10
 
     }
 

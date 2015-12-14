@@ -2,6 +2,7 @@ import React from 'react-native';
 import MainPage from './MainPage'
 import * as SmsActionCreators from '../actions/SmsActionCreators';
 import SmsStore from '../stores/SmsStore';
+
 let {
   StyleSheet,
   Text,
@@ -49,7 +50,7 @@ class Login extends Component{
     this.handleStoresChanged = this.handleStoresChanged.bind(this);
     this.state = getState(props);
     this.requestData = this.requestData.bind(this);
-
+    showLoading=false;
   }
   componentWillMount() {
     SmsStore.addChangeListener(this.handleStoresChanged);
@@ -59,6 +60,7 @@ class Login extends Component{
   componentWillUnmount() {
     SmsStore.removeChangeListener(this.handleStoresChanged);
   }
+
 
   handleStoresChanged() {
     this.setState(getState(this.props));
@@ -70,9 +72,11 @@ class Login extends Component{
     const { instructions } = this.props;
     let { user } = this.state;
     console.log('render:',user);
+
     return (
 
   <View style={styles.container}>
+
     <View style={styles.flowRight}>
       <Button value="注册" primary={primary} onPress={()=> console.log('Login')}/>
     </View>
@@ -89,8 +93,8 @@ class Login extends Component{
                       style={styles.formInput}
                       value={this.state.password}
                     />
-                    <Button value="验证码" raised={true} primary={primary}
-                        onPress={(this.requestData.bind(this))}/>
+        <Button value="验证码" raised={true} primary={primary}
+                  onPress={(this.requestData.bind(this))}/>
 
           </View>
             <TouchableHighlight onPress={(this.onSubmitPressed.bind(this))} style={styles.button}
@@ -100,7 +104,8 @@ class Login extends Component{
             <Text style={styles.title}>
 .              Welcome to React Native!,{this.state.username}
             </Text>
-  </View>
+
+</View>
 
     );
   }
@@ -111,7 +116,7 @@ class Login extends Component{
     });
   }
   requestData(props) {
-    SmsActionCreators.postMobile('17892372646');
+    SmsActionCreators.postMobile(this.state.username);
   }
   }
 
@@ -155,27 +160,16 @@ class Login extends Component{
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
-  button1: {
-    height: 26,
-    flex: 2,
-    flexDirection: 'row',
-    backgroundColor: '#00FF00',
-    borderColor: '#00FF00',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
   buttonText: {
       fontSize: 18,
       color: "#ffffff",
       alignSelf: "center"
   },
-  buttonText1: {
-      fontSize: 18,
-      color: "#ffffff",
-      alignSelf: "center"
+  button1:{
+    borderColor: '#8e44ad',
+    backgroundColor: 'white',
+    borderRadius: 0,
+    borderWidth: 3,
   }
   });
 export default Login;

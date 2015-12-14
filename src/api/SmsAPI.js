@@ -4,10 +4,7 @@
  */
 
 import { fetchJSON } from '../utils/APIUtils';
-
-// export function postSms(mobile, url = `/confirm`) {
-//   return fetchJSON(url);
-// }
+//url:'/confirmation'   user:{mobile}
 export function submitMobile(mobile, url = `/confirm`) {
   return fetchJSON(url, 'POST', mobile);
 }
